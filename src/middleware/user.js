@@ -39,17 +39,17 @@ const passportAuthenticateAsync = function (req, res) {
 module.exports = function (middleware) {
 	async function authenticate(req, res) {
 		if (await handleAPIAuthentication(req, res)) {
-			console.log('Ben C');
+			// console.log('Ben C');
 			return true;
 		}
 
 		if (req.loggedIn) {
-			console.log('Ben C');
+			// console.log('Ben C');
 			return true;
 		}
 
 		if (req.headers.hasOwnProperty('authorization')) {
-			console.log('Ben C');
+			// console.log('Ben C');
 			return await handleAuthorizationHeader(req, res);
 		}
 
@@ -58,7 +58,7 @@ module.exports = function (middleware) {
 		if (!res.headersSent) {
 			auth.setAuthVars(req);
 		}
-		console.log('Ben C');
+		// console.log('Ben C');
 		return !res.headersSent;
 	}
 
